@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.WriteLine("Введите два числа для деления.");
+
+        try
+        {
+            Console.Write("Первое число: ");
+            int num1 = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("Второе число: ");
+            int num2 = Convert.ToInt32(Console.ReadLine());
+
+            int result = num1 / num2;
+            Console.WriteLine("Результат: " + result);
+        }
+        catch (DivideByZeroException ex)
+        {
+            Console.WriteLine("Ошибка: Деление на ноль! Сообщение: " + ex.Message);
+        }
+        catch (FormatException ex)
+        {
+            Console.WriteLine("Ошибка: Неверный формат числа! Сообщение: " + ex.Message);
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine("Неизвестная ошибка: " + ex.Message);
+        }
+        finally
+        {
+            Console.WriteLine("Программа завершена. Нажмите Enter для выхода.");
+            Console.ReadLine();
+        }
+    }
+}
