@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+      
+        string dateString1 = "2025-11-02";
+        DateTime parsedExact = DateTime.ParseExact(dateString1, "yyyy-MM-dd", null);
+        Console.WriteLine("ParseExact: " + parsedExact);
+
+   
+        string dateString2 = "November 02, 2025";
+        DateTime parsed = DateTime.Parse(dateString2);
+        Console.WriteLine("Parse: " + parsed);
+
+       
+        string dateString3 = "Invalid date";
+        DateTime tryParsed;
+        bool tryParseSuccess = DateTime.TryParse(dateString3, out tryParsed);
+        Console.WriteLine("TryParse success: " + tryParseSuccess + ", Value: " + (tryParseSuccess ? tryParsed.ToString() : "None"));
+
+      
+        string dateString4 = "02/11/2025";
+        DateTime tryParsedExact;
+        bool tryParseExactSuccess = DateTime.TryParseExact(dateString4, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.None, out tryParsedExact);
+        Console.WriteLine("TryParseExact success: " + tryParseExactSuccess + ", Value: " + (tryParseExactSuccess ? tryParsedExact.ToString() : "None"));
+
+        Console.ReadLine();
+    }
+}
