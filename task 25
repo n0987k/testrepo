@@ -1,1 +1,27 @@
+using System;
 
+class Program
+{
+    static void Main()
+    {
+        string str1 = "Hello";
+        string str2 = "hello";
+        string str3 = "World";
+        int compareResult = string.Compare(str1, str2);
+        Console.WriteLine("Compare(str1, str2): " + compareResult); 
+        bool equalsResult = str1.Equals(str2);
+        Console.WriteLine("Equals(str1, str2): " + equalsResult); 
+        int compareOrdinalResult = string.CompareOrdinal(str1, str2);
+        Console.WriteLine("CompareOrdinal(str1, str2): " + compareOrdinalResult);  
+        int indexOfResult = str1.IndexOf("ell");
+        Console.WriteLine("IndexOf('ell') in str1: " + indexOfResult);  
+        bool containsResult = str1.Contains("lo");
+        Console.WriteLine("Contains('lo') in str1: " + containsResult);  
+        bool equalOperator = (str1 == str2);
+        Console.WriteLine("str1 == str2: " + equalOperator);  
+
+        bool notEqualOperator = (str1 != str3);
+        Console.WriteLine("str1 != str3: " + notEqualOperator);  
+        Console.ReadLine(); 
+    }
+}
