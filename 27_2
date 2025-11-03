@@ -1,0 +1,25 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter n: ");
+        int n = int.Parse(Console.ReadLine());
+
+        int result = CalculateDifference(n);
+        Console.WriteLine("Result: " + result);
+
+        Console.ReadLine();
+    }
+
+    static int CalculateDifference(int n)
+    {
+        int diff = Math.Abs(n - 123);
+        if (n > 123)
+        {
+            return diff * 3;
+        }
+        return diff;
+    }
+}
