@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using LibraryLib;
+
+namespace NesterovTest
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+          
+            LibraryFunctions lib = new LibraryFunctions();
+            Console.WriteLine("=== ТЕСТ БИБЛИОТЕКИ LibraryLib ===");
+            Console.WriteLine("\n1. Название библиотеки: " + lib.GetLibraryName());
+            Console.WriteLine("2. Главный библиотекарь: " + lib.GetChiefLibrarian());
+            Console.WriteLine("3. Пробуем сменить главного на 'Петров П.С.'...");
+            bool isChanged = lib.SetChiefLibrarian("Петров П.С.");
+            Console.WriteLine("   Результат: " + (isChanged ? "Успешно!" : "Не удалось"));
+            Console.WriteLine("   Теперь главный: " + lib.GetChiefLibrarian());
+            Console.WriteLine("4. Генерируем код для книги 'fantasy':");
+            string bookCode = lib.GenerateBookCode("fantasy");
+            Console.WriteLine("   Код книги: " + bookCode);
+            Console.WriteLine("5. Список сотрудников:");
+            foreach (string employee in lib.GetStaff())
+            {
+                Console.WriteLine("   - " + employee);
+            }
+            Console.WriteLine("6. Добавляем нового сотрудника 'Новиков А.С.'...");
+            lib.AddStaff("Новиков А.С.");
+            Console.WriteLine("   Обновленный список:");
+            foreach (string employee in lib.GetStaff())
+            {
+                Console.WriteLine("   - " + employee);
+            }
+            Console.WriteLine("\n=== Тест завершен! ===");
+            Console.WriteLine("Нажмите Enter для выхода...");
+            Console.ReadLine();
+        }
+    }
+}
